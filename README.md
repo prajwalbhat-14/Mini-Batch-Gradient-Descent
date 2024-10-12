@@ -64,6 +64,10 @@ Step #1: First step is to import dependencies, generate data for linear regressi
 
 <img width="330" alt="image" src="https://github.com/user-attachments/assets/7f19a100-79fb-41d7-ab37-f62a81a77858">
 
+Number of examples in training set = 7200 Number of examples in testing set = 800   
+
+Step #2: Next, we write the code for implementing linear regression using mini-batch gradient descent. gradientDescent() is the main driver function and other functions are helper functions used for making predictions – hypothesis(), computing gradients – gradient(), computing error – cost() and creating mini-batches – create_mini_batches(). The driver function initializes the parameters, computes the best set of parameters for the model, and returns these parameters along with a list containing a history of errors as the parameters get updated.
+
 
     # linear regression using "mini-batch" gradient descent
     # function to compute hypothesis / predictions
@@ -128,6 +132,8 @@ Step #1: First step is to import dependencies, generate data for linear regressi
         return theta, error_list
 
 
+Calling the gradientDescent() function to compute the model parameters (theta) and visualize the change in the error function. 
+
 
 Visualising gradient descent:
 
@@ -141,9 +147,13 @@ Visualising gradient descent:
     plt.ylabel("Cost")
     plt.show()
 
+Output: Bias = [0.81830471] Coefficients = [[1.04586595]]
+
+
 <img width="350" alt="image" src="https://github.com/user-attachments/assets/912b3d0b-fa27-4410-bcf0-b8c420f05d22">
 
-Output:
+
+Step #3: Finally, we make predictions on the testing set and compute the mean absolute error in predictions. 
 
      # predicting output for X_test
      y_pred = hypothesis(X_test, theta)
@@ -156,6 +166,8 @@ Output:
      print("Mean absolute error = ", error)
     
 <img width="328" alt="image" src="https://github.com/user-attachments/assets/b8bab200-9e2e-4424-8452-c190f721abf0">
+
+The orange line represents the final hypothesis function: theta[0] + theta[1]*X_test[:, 1] + theta[2]*X_test[:, 2] = 0
 
 
 
